@@ -1,29 +1,42 @@
-name: Docker Image CI
+name: Build Docker
 
+# github action 的触发时机
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    # 指定分支触发
+    branches: 
+      - "master"
+
+# env 环境变量，为下面的 action 脚本提供
+env:
+  # Use docker.io for Docker Hub if empty
+  REGISTRY: ${{ secrets.REGISTRY }}
+  # github.repository as <account>/<repo>
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag hanimetool:$(date +%s)
-    - name: Login to Docker Hub
-      uses: docker/login-action@v1
+
+    # 提供 docker 元数据，构建 docker images tag 时使用
+    - name: Extract Docker metadata
+      id: meta
+      uses: docker/metadata-action@v4
       with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_TOKEN }}
-    - name: Build and push Docker image
-      uses: docker/build-push-action@v2
-      with:
-        push: true
-        tags: eventhorizonsky/hanimetool:tag
-        build: .
+        images: ${{ env.IMAGE_NAME }}
+        tags: |
+          # set latest tag for default branch
+          type=raw,value=latest,enable={{is_default_branch}}
+          # tag event
+          type=ref,enable=true,priority=600,prefix=,suffix=,event=tag
+  
+    # 构建镜像 使用 docker/Build-And-push@v5 插件有问题
+    - uses: actions/checkout@v2
+    - name: Build Docker Image  
+      run: |
+        docker build -t ${{ env.REGISTRY }}/${{ steps.meta.outputs.tags }} -f Dockerfile .
+    - name: Push Docker Image
+      run: |
+        docker login --username=${{ secrets.DOCKER_USERNAME }} --password ${{ secrets.DOCKER_PASSWORD }} ${{ env.REGISTRY }}
+        docker push ${{ env.REGISTRY }}/${{ steps.meta.outputs.tags }}
