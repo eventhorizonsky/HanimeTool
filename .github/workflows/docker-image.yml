@@ -17,10 +17,10 @@ jobs:
       run: echo "${{ secrets.DOCKER_TOKEN }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
     - name: Build Docker image
-      run: docker build -t eventhorizonsky/hanimetool .
+      run: docker build -t ezsky333/hanimetool .
 
     - name: Push Docker image to Docker Hub
-      run: docker push eventhorizonsky/hanimetool
+      run: docker push ezsky333/hanimetool
 
     - name: Logout of Docker Hub
       run: docker logout
