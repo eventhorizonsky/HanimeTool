@@ -24,6 +24,14 @@ def get_dl(vid, user_name):
         download_with_aria2(vid, link, title, user_name)
         break
 
+def download_by_url(href):
+    vid = get_video_id(href)
+    if vid and not check_if_downloaded(vid):
+        page = requests.get(href, headers=header, impersonate="chrome110")
+        soup = BeautifulSoup(page.content, "html.parser")
+        user_name = soup.select_one("a#video-artist-name").text.strip()
+        insert_video(vid, user_name)
+        get_dl(vid, user_name)
 
 def traverse_and_get_links():
     page = requests.get("https://hanime1.me/subscriptions", headers=header, impersonate="chrome110")
