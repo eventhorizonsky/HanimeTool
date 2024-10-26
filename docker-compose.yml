@@ -1,0 +1,11 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  scheduler:
+    build: .
+    volumes:
+      - ./config:/app/config  # 挂载 config 文件夹
+    ports:
+      - "5051:5051"  # 暴露端口
+    restart: unless-stopped
