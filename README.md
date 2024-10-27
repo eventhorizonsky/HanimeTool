@@ -1,7 +1,3 @@
-以下是经过修订的 README 文件，包含了更新后的内容和目录结构。
-
----
-
 # HanimeTool
 
 HanimeTool 是一个自动下载 Hanime 视频的工具，支持定时任务和手动触发下载。
