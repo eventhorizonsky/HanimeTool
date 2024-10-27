@@ -1,9 +1,12 @@
 # database.py
 
 import sqlite3
+import os
 
 def connect_db():
-    conn = sqlite3.connect('config\\videos.db')
+    db_dir = os.path.join(os.path.dirname(__file__), "config")
+    db_path = os.path.join(db_dir, "videos.db")
+    conn = sqlite3.connect(db_path)
     c = conn.cursor()
     c.execute('''
         CREATE TABLE IF NOT EXISTS videos
