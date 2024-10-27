@@ -19,10 +19,7 @@ HanimeTool 是一个自动下载 Hanime 视频的工具，支持定时任务和�
   - [开发前的配置要求](#开发前的配置要求)
   - [安装步骤](#安装步骤)
 - [文件目录说明](#文件目录说明)
-- [开发的架构](#开发的架构)
 - [使用到的框架](#使用到的框架)
-- [贡献者](#贡献者)
-  - [如何参与开源项目](#如何参与开源项目)
 - [版本控制](#版本控制)
 - [版权说明](#版权说明)
 
@@ -133,29 +130,11 @@ filetree
 └── main.py
 ```
 
-### 开发的架构 
-
-请阅读 [ARCHITECTURE.md](https://github.com/eventhorizonsky/HanimeTool/blob/master/ARCHITECTURE.md) 查阅为该项目的架构。
-
 ### 使用到的框架
 
 - [Flask](https://flask.palletsprojects.com)
 - [schedule](https://schedule.readthedocs.io)
 - [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
-
-### 贡献者
-
-请阅读 **CONTRIBUTING.md** 查阅为该项目做出贡献的开发者。
-
-#### 如何参与开源项目
-
-贡献使开源社区成为一个学习、激励和创造的绝佳场所。你所作的任何贡献都是 **非常感谢** 的。
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 ### 版本控制
 
@@ -177,7 +156,3 @@ filetree
 [issues-url]: https://img.shields.io/github/issues/eventhorizonsky/HanimeTool.svg
 [license-shield]: https://img.shields.io/github/license/eventhorizonsky/HanimeTool.svg?style=flat-square
 [license-url]: https://github.com/eventhorizonsky/HanimeTool/blob/master/LICENSE.txt
-
---- 
-
-这个更新后的 README 文件应能更清晰地指导用户使用 Docker 来构建和运行 HanimeTool。请根据需要进一步调整内容。
