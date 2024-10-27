@@ -7,6 +7,7 @@ ENV PYTHONUNBUFFERED=1
 # 安装依赖，包括 Flask
 RUN pip install requests bs4 schedule curl_cffi flask Flask[async]
 
+EXPOSE 5051
 # 设置工作目录
 WORKDIR /app
 

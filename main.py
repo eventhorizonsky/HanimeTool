@@ -10,7 +10,7 @@ def start_scheduler():
     schedule_random_time_task()
 
 def start_api():
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5051)
 
 if __name__ == "__main__":
 
