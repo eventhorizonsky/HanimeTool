@@ -1,3 +1,7 @@
+以下是经过修订的 README 文件，包含了更新后的内容和目录结构。
+
+---
+
 # HanimeTool
 
 HanimeTool 是一个自动下载 Hanime 视频的工具，支持定时任务和手动触发下载。
@@ -20,21 +24,15 @@ HanimeTool 是一个自动下载 Hanime 视频的工具，支持定时任务和�
   - [安装步骤](#安装步骤)
 - [文件目录说明](#文件目录说明)
 - [开发的架构](#开发的架构)
-- [部署](#部署)
 - [使用到的框架](#使用到的框架)
 - [贡献者](#贡献者)
   - [如何参与开源项目](#如何参与开源项目)
 - [版本控制](#版本控制)
-- [作者](#作者)
-- [鸣谢](#鸣谢)
+- [版权说明](#版权说明)
 
 ### 上手指南
 
-下面是针对您的项目的上手指南，包含了如何使用 Docker 来构建和运行程序的详细步骤。
-
-### 上手指南
-
-本节将指导您如何使用 Docker 来构建和运行 HanimeDownloader。
+本节将指导您如何使用 Docker 来构建和运行 HanimeTool。
 
 ###### 开发前的配置要求
 
@@ -58,7 +56,7 @@ docker-compose --version
 
 2. **修改 Docker Compose 文件**
 
-   修改`docker-compose.yml` 文件的config映射地址
+   修改 `docker-compose.yml` 文件的 config 映射地址：
 
    ```yaml
    version: '3.8'
@@ -81,10 +79,10 @@ docker-compose --version
    ```
 
    这将以后台模式启动容器。
-   
+
 4. **创建配置文件**
 
-   修改config目录的 `config.json` 文件，内容如下：
+   修改 config 目录下的 `config.json` 文件，内容如下：
 
    ```json
    {
@@ -95,12 +93,13 @@ docker-compose --version
    ```
 
    请根据您的实际情况替换其中的值，并重启容器。
+
 5. **访问 API**
 
    一旦容器启动成功，您可以通过以下接口来手动触发视频下载：
 
    - **触发下载**：`http://localhost:5051/trigger`
-   - **通过 href 添加视频**：`http://localhost:5051//downloadUrl`
+   - **通过 href 添加视频**：`http://localhost:5051/downloadUrl`
 
    您可以使用工具如 Postman 或直接在浏览器中访问这些接口。
 
@@ -112,36 +111,16 @@ docker-compose --version
    docker-compose logs -f
    ```
 
-7 注意事项
+7. **注意事项**
 
-- 请确保配置文件中的 RPC URL 和 Cookie 是有效的。
-- 如果您需要查看或修改代码，可以通过以下命令进入容器的命令行：
+   - 请确保配置文件中的 RPC URL 和 Cookie 是有效的。
+   - 如果您需要查看或修改代码，可以通过以下命令进入容器的命令行：
 
-```sh
-docker exec -it hanime_tool /bin/bash
-```
+   ```sh
+   docker exec -it hanime_tool /bin/bash
+   ```
 
-通过上述步骤，您应该能够顺利使用 Docker 来构建和运行 HanimeDownloader 项目。如果遇到问题，请查看 Docker 日志以获取更多信息，或者在项目的 GitHub 页面提出问题。
-
-###### 开发前的配置要求
-
-1. Python 3.6 或更高版本
-2. 安装所需依赖项
-
-###### **安装步骤**
-
-1. 克隆仓库：
-
-```sh
-git clone https://github.com/eventhorizonsky/HanimeTool.git
-```
-
-2. 进入项目目录并安装依赖：
-
-```sh
-cd HanimeDownloader
-pip install requests bs4 schedule curl_cffi flask Flask[async]
-```
+通过上述步骤，您应该能够顺利使用 Docker 来构建和运行 HanimeTool 项目。如果遇到问题，请查看 Docker 日志以获取更多信息，或者在项目的 GitHub 页面提出问题。
 
 ### 文件目录说明
 
@@ -162,19 +141,15 @@ filetree
 
 请阅读 [ARCHITECTURE.md](https://github.com/eventhorizonsky/HanimeTool/blob/master/ARCHITECTURE.md) 查阅为该项目的架构。
 
-### 部署
-
-1. 使用 Docker 部署：
-
-```sh
-docker-compose up -d
-```
-
 ### 使用到的框架
 
 - [Flask](https://flask.palletsprojects.com)
 - [schedule](https://schedule.readthedocs.io)
 - [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+
+### 贡献者
+
+请阅读 **CONTRIBUTING.md** 查阅为该项目做出贡献的开发者。
 
 #### 如何参与开源项目
 
@@ -206,3 +181,7 @@ docker-compose up -d
 [issues-url]: https://img.shields.io/github/issues/eventhorizonsky/HanimeTool.svg
 [license-shield]: https://img.shields.io/github/license/eventhorizonsky/HanimeTool.svg?style=flat-square
 [license-url]: https://github.com/eventhorizonsky/HanimeTool/blob/master/LICENSE.txt
+
+--- 
+
+这个更新后的 README 文件应能更清晰地指导用户使用 Docker 来构建和运行 HanimeTool。请根据需要进一步调整内容。
