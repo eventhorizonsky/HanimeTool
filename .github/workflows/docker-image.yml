@@ -22,5 +22,13 @@ jobs:
     - name: Push Docker image to Docker Hub
       run: docker push ezsky333/hanimetool
 
+    - name: Update Docker Hub README
+      run: |
+        curl -X PATCH \
+        -H "Content-Type: application/json" \
+        -H "Authorization: Bearer ${{ secrets.DOCKER_TOKEN }}" \
+        -d "{\"full_description\": \"$(cat README.md)\"}" \
+        https://hub.docker.com/v2/repositories/ezsky333/hanimetool/
+
     - name: Logout of Docker Hub
       run: docker logout
