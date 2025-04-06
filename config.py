@@ -8,10 +8,11 @@ config_path = os.path.join(config_dir, "config.json")
 
 # 配置文件模板
 default_config = {
-    "hanimeCookie": "your_cookie_here",
+    "hanimeCookie": "",
     "aria2RpcUrl": "http://localhost:6800/jsonrpc",
-    "aria2RpcSecret": "your_rpc_secret_here",
-    "filePath":"/anime"
+    "aria2RpcSecret": "",
+    "filePath":"/anime",
+    "httpProxy": ""  # 新增代理配置项
 }
 
 # 检查并创建 config.json 文件
