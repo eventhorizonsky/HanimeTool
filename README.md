@@ -79,9 +79,11 @@ docker-compose --version
 
    ```json
    {
-       "aria2RpcUrl": "你的_RPC_URL",
-       "aria2RpcSecret": "你的_RPC_密钥",
-       "hanimeCookie": "你的_Hanime_网站_Cookie"
+      "aria2RpcUrl": "你的_RPC_URL",
+      "aria2RpcSecret": "你的_RPC_密钥",
+      "hanimeCookie": "你的_Hanime_网站_Cookie",
+      "filePath":"下载文件的路径",
+      "httpProxy": "http代理地址"
    }
    ```
 
@@ -93,6 +95,8 @@ docker-compose --version
 
    - **触发下载**：`http://localhost:5051/trigger`
    - **通过 href 添加视频**：`http://localhost:5051/downloadUrl`
+
+   接口的文档地址：http://localhost:5051/docs
 
    您可以使用工具如 Postman 或直接在浏览器中访问这些接口。
 

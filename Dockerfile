@@ -1,5 +1,8 @@
-# Dockerfile
-FROM python:3.9-slim
+FROM python:3.9
+
+# 设置时区为北京时间
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # 设置环境变量
 ENV PYTHONUNBUFFERED=1
