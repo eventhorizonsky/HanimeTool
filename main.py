@@ -3,6 +3,7 @@ import os
 import json
 import threading
 from scheduler import schedule_random_time_task
+import uvicorn
 from api import app
 
 
@@ -10,7 +11,7 @@ def start_scheduler():
     schedule_random_time_task()
 
 def start_api():
-    app.run(host='0.0.0.0', port=5051)
+    uvicorn.run(app, host="0.0.0.0", port=5051)
 
 if __name__ == "__main__":
 

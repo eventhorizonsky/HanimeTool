@@ -5,7 +5,7 @@ FROM python:3.9-slim
 ENV PYTHONUNBUFFERED=1
 
 # 安装依赖，包括 Flask
-RUN pip install requests bs4 schedule curl_cffi flask Flask[async]
+RUN pip install fastapi uvicorn[standard] requests bs4 schedule curl_cffi
 
 EXPOSE 5051
 # 设置工作目录
