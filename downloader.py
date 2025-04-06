@@ -28,7 +28,7 @@ def download_with_aria2(vid, link, title, user):
     response = requests.post(aria2_config["url"], data=json.dumps(params), headers=headers)
 
     if response.status_code == 200:
-        print(f"Download request sent to aria2 for {file_name}")
+        print(f"下载任务成功发送至 aria2 : {file_name}")
         update_download_status(vid)
     else:
-        print("Failed to send download request to aria2")
+        print("下载任务成功发送至aria2失败")

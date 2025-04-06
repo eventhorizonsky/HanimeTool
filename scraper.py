@@ -40,7 +40,7 @@ def traverse_and_get_links():
 
     vid_set = set()
     for page_num in range(1, total_pages + 1):
-        print(f"Fetching page {page_num}")
+        print(f"加载页数： {page_num}")
         page = requests.get(f"https://hanime1.me/subscriptions?page={page_num}", headers=header, impersonate="chrome110")
         soup = BeautifulSoup(page.content, "html.parser")
 
