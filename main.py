@@ -13,8 +13,15 @@ def check_config():
     print(f"aria2 RpcSecret: {'已配置' if config.get('aria2RpcSecret') else '未配置'}")
     print(f"Cookie配置: {'已配置' if config.get('hanimeCookie') else '未配置'}")
     print("====================\n")
+
 def start_scheduler():
-    schedule_random_time_task()
+    while True:
+        try:
+            schedule_random_time_task()
+        except Exception as e:
+            print(f"调度器异常: {str(e)}")
+            print("60秒后重试...")
+            time.sleep(60)
 
 def start_api():
     uvicorn.run(app, host="0.0.0.0", port=5051)

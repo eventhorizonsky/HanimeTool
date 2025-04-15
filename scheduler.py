@@ -15,8 +15,16 @@ def schedule_random_time_task():
     print(f"当前时间: {current_time}")
     print(f"将定时获取订阅列表，时间为每天的 {run_time.strftime('%H:%M')}")
 
-    # 定义每天随机时间的任务
-    schedule.every().day.at(run_time.strftime('%H:%M')).do(traverse_and_get_links)
+    def safe_traverse():
+        try:
+            traverse_and_get_links()
+        except Exception as e:
+            print(f"执行订阅任务出错: {str(e)}")
+            # 记录错误日志或发送通知
+            # 可以在这里添加重试逻辑
+
+    # 修改任务函数
+    schedule.every().day.at(run_time.strftime('%H:%M')).do(safe_traverse)
 
     # 运行调度器
     while True:
