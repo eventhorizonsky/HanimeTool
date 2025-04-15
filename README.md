@@ -1,15 +1,6 @@
 # HanimeTool
 
-HanimeTool 是一个自动下载 Hanime 视频的工具，支持定时任务和手动触发下载。
-
-<!-- PROJECT SHIELDS -->
-
-[![贡献者][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stars][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-
+![HanimeTool](https://socialify.git.ci/eventhorizonsky/HanimeTool/image?description=1&font=Bitter&issues=1&language=1&logo=&name=1&owner=1&pulls=1&stargazers=1&theme=Auto)
 <!-- PROJECT LOGO -->
 <br />
 
