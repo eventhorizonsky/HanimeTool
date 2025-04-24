@@ -9,7 +9,6 @@ from database import update_download_status
 def download_with_aria2(vid, link, title, user):
     download_dir = f"{file_path}/{user}"
     file_name = f"{title}-[{vid}].mp4"
-
     params = {
         "jsonrpc": "2.0",
         "id": 1,

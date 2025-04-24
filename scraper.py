@@ -33,7 +33,7 @@ def get_dl(vid, user_name):
 
     a_tags = tables[0].find_all("a")
     for a in a_tags:
-        link = a.get("href")
+        link = a.get("data-url")
         title = remove_dir_invalid_symbol(a.get("download"))
         download_with_aria2(vid, link, title, user_name)
         break
@@ -51,7 +51,6 @@ def traverse_and_get_links():
     try:
         page = make_request("https://hanime1.me/subscriptions")
         soup = BeautifulSoup(page.content, "html.parser")
-        
         # 更安全的获取总页数方式
         pagination = soup.select("#home-rows-wrapper > div:nth-child(2) > ul > li")
         if not pagination or len(pagination) < 2:
