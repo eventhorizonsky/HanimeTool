@@ -31,4 +31,4 @@ def download_with_aria2(vid, link, title, user):
         print(f"下载任务成功发送至 aria2 : {file_name}")
         update_download_status(vid)
     else:
-        print("下载任务成功发送至aria2失败")
+        print("下载任务发送至aria2失败:", response.text)
