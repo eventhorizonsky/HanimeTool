@@ -23,7 +23,7 @@ def make_request(url):
     )
 
 def get_dl(vid, user_name):
-    url = f"https://hanime1.me/download?v={vid}"
+    url = f"https://hanimeone.me/download?v={vid}"
     page = make_request(url)  # 修改为使用新的请求方法
     soup = BeautifulSoup(page.content, "html.parser")
 
@@ -49,7 +49,7 @@ def download_by_url(href):
 
 def traverse_and_get_links():
     try:
-        page = make_request("https://hanime1.me/subscriptions")
+        page = make_request("https://hanimeone.me/subscriptions")
         soup = BeautifulSoup(page.content, "html.parser")
         # 更安全的获取总页数方式
         pagination = soup.select("#home-rows-wrapper > div:nth-child(2) > ul > li")
@@ -66,7 +66,7 @@ def traverse_and_get_links():
         vid_set = set()
         for page_num in range(1, total_pages + 1):
             print(f"加载页数： {page_num}")
-            page = make_request(f"https://hanime1.me/subscriptions?page={page_num}")  # 修改为使用新的请求方法
+            page = make_request(f"https://hanimeone.me/subscriptions?page={page_num}")  # 修改为使用新的请求方法
             soup = BeautifulSoup(page.content, "html.parser")
     
             divs = soup.select("#home-rows-wrapper > div:nth-child(1) > div > div")
