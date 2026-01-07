@@ -12,7 +12,8 @@ default_config = {
     "aria2RpcUrl": "http://localhost:6800/jsonrpc",
     "aria2RpcSecret": "",
     "filePath":"/anime",
-    "httpProxy": ""  # 新增代理配置项
+    "httpProxy": "",  # 新增代理配置项
+    "baseUrl": "https://hanime1.me"  # 域名前缀配置
 }
 
 # 检查并创建 config.json 文件
@@ -40,3 +41,6 @@ aria2_config = {
 file_path=config.get("filePath", "")
 # 设置数据库路径
 db_path = os.path.join(os.path.dirname(__file__), "config/videos.db")
+
+# 基础URL配置
+base_url = config.get("baseUrl", "https://hanime1.me")
