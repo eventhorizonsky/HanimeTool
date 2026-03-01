@@ -69,7 +69,7 @@ def traverse_and_get_links():
             page = make_request(f"{base_url}/subscriptions?page={page_num}")  # 修改为使用新的请求方法
             soup = BeautifulSoup(page.content, "html.parser")
     
-            divs = soup.select("#home-rows-wrapper > div:nth-child(1) > div > div")
+            divs = soup.select("#home-rows-wrapper > div.content-padding-new > div > div > div")
             for div in divs:
                 a_tag = div.find("a")
                 if a_tag:
